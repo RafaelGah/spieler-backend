@@ -43,7 +43,9 @@ public class REST_Controller {
                 .get()
                 .getId()+1;
         player.setId(newId);
-        getPlayers().add(player);
+        System.out.println(player.toString());
+        teamRepository.save(player);
+
         return player;
     }
 

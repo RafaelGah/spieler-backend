@@ -6,17 +6,21 @@ import java.util.Date;
 @Entity
 public class Player {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)//Mit Auto nicht möglich
     private int id;
     private int number;
     private String name;
     private String surname;
-    private Date birthdate;
+    private String birthdate;
     private String nationality;
     private int height;
     private int worth;
     private String club;
     private String url;
+
+    public Player() {
+        this.id = 0;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -34,7 +38,7 @@ public class Player {
         this.surname = surname;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -74,7 +78,7 @@ public class Player {
         return surname;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
@@ -96,5 +100,21 @@ public class Player {
 
     public String getUrl() {
         return url;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", number=" + number +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthdate='" + birthdate + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", height=" + height +
+                ", worth=" + worth +
+                ", club='" + club + '\'' +
+                ", url='" + url + '\'' +
+                '}';
     }
 }
