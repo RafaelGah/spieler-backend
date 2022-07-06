@@ -29,7 +29,6 @@ public class REST_Controller {
 
     @GetMapping("/player/{id}")
     public Player getPlayerById(@PathVariable int id) {
-        //TODO: serach the right todo
         return getPlayers().stream()
                 .filter(player -> player.getId() == id)
                 .findFirst()
@@ -68,12 +67,14 @@ public class REST_Controller {
         playerToUpdate.setSurname(player.getSurname());
         playerToUpdate.setBirthdate(player.getBirthdate());
         playerToUpdate.setClub(player.getClub());
-        playerToUpdate.setId(player.getId());
         playerToUpdate.setHeight(player.getHeight());
         playerToUpdate.setNationality(player.getNationality());
         playerToUpdate.setNumber(player.getNumber());
         playerToUpdate.setUrl(player.getUrl());
         playerToUpdate.setWorth(player.getWorth());
+        teamRepository.save(playerToUpdate);
+        System.out.println(playerToUpdate.getName());
+        System.out.println(player.getName());
         return playerToUpdate;
     }
 
