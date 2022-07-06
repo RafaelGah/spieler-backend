@@ -55,7 +55,7 @@ public class REST_Controller {
                 .filter(todo -> todo.getId() == id)
                 .findFirst()
                 .get();
-        getPlayers().remove(playerToDelete.getId());
+        teamRepository.delete(playerToDelete);
     }
 
     @PutMapping("/player/{id}")
